@@ -1,0 +1,12 @@
+# RULE FRAGMENT ONLY. Merge through the app; this is not a complete profile.
+# First create a SOCKS5 node/policy named COMPANY-VPN pointing to the measured
+# aTrust loopback listener. Do not add DIRECT/public fallbacks to that policy.
+# Put these before conflicting LAN/GEOIP/final rules. All destinations are fictional.
+DOMAIN,oa.corp.example,COMPANY-VPN
+DOMAIN,sso.corp.example,COMPANY-VPN
+DOMAIN,llm.corp.example,COMPANY-VPN
+DOMAIN,gitlab.corp.example,COMPANY-VPN
+IP-CIDR,192.168.50.20/32,COMPANY-VPN,no-resolve
+IP-CIDR,192.168.50.30/32,COMPANY-VPN,no-resolve
+IP-CIDR,192.168.50.40/32,COMPANY-VPN,no-resolve
+# Preserve the existing public Internet rules and final policy below these.

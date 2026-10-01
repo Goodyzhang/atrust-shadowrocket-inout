@@ -1,0 +1,24 @@
+# Fresh-install example for hagb/docker-atrust only. Reuse existing containers.
+# Credentials and state paths come from a private --env-file OUTSIDE this repo.
+services:
+  atrust:
+    image: "${ATRUST_IMAGE:?Select a verified aTrust image tag or digest}"
+    platform: "${ATRUST_PLATFORM:?Select a supported platform after inspection}"
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    sysctls:
+      net.ipv4.conf.default.route_localnet: "1"
+    environment:
+      PASSWORD: "${ATRUST_VNC_PASSWORD:?Set a private VNC password}"
+      URLWIN: "1"
+    volumes:
+      - type: bind
+        source: "${ATRUST_STATE_DIR:?Set a private absolute state directory}"
+        target: /root
+    ports:
+      - "127.0.0.1:${ATRUST_SOCKS_PORT:-1080}:1080"
+      - "127.0.0.1:${ATRUST_VNC_PORT:-5901}:5901"
+      - "127.0.0.1:54631:54631"

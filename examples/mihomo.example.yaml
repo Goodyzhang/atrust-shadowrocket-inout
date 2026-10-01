@@ -1,0 +1,36 @@
+# Example addresses only. Discover all ports and adapt a PRIVATE copy.
+# Never replace an existing configuration wholesale with this example.
+# TCP application example; no claim of UDP or system-wide traffic coverage.
+mixed-port: 7890
+allow-lan: false
+bind-address: 127.0.0.1
+mode: rule
+log-level: info
+tun:
+  enable: false
+dns:
+  enable: false
+proxies:
+  - name: ATrust-SOCKS
+    type: socks5
+    server: 127.0.0.1
+    port: 1080
+    udp: false
+  - name: Existing-Shadowrocket
+    type: http
+    server: 127.0.0.1
+    port: 1082
+proxy-groups:
+  - name: COMPANY-VPN
+    type: select
+    proxies:
+      - ATrust-SOCKS
+rules:
+  - DOMAIN,oa.corp.example,COMPANY-VPN
+  - DOMAIN,sso.corp.example,COMPANY-VPN
+  - DOMAIN,llm.corp.example,COMPANY-VPN
+  - DOMAIN,gitlab.corp.example,COMPANY-VPN
+  - IP-CIDR,192.168.50.20/32,COMPANY-VPN,no-resolve
+  - IP-CIDR,192.168.50.30/32,COMPANY-VPN,no-resolve
+  - IP-CIDR,192.168.50.40/32,COMPANY-VPN,no-resolve
+  - MATCH,Existing-Shadowrocket
