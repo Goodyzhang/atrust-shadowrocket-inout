@@ -99,9 +99,12 @@ Mihomo 是可选项。这种接法让应用只配置一个 HTTP 代理，由 Mih
 | 内网大模型 provider | 完整模型 ID、端点约定、Key、流式与客户端取消 | [内网模型-provider](docs/scenarios.zh-CN.md#内网模型-provider) |
 | 内网 GitLab | HTTPS Git 与 SSH Git 分开配置，限制作用范围并核对主机键 | [GitLab-与-SSH](docs/scenarios.zh-CN.md#gitlab-与-ssh) |
 | 外网 AI 模型缺失 | 订阅权限、实际规则命中、刷新目录和真实回答 | [外网模型目录](docs/scenarios.zh-CN.md#外网模型目录) |
+| VS Code Copilot 中 Claude 缺失/不可用 | Pro+ 已识别但仍显示 Upgrade；规则修正、客户端更新及 Opus/Sonnet 实测 | [完整修复案例](docs/copilot-claude.zh-CN.md) |
 | VPN 已登录但不通 | 本地监听 → 代理握手 → 容器路由 → 目标 TCP → 应用认证 | [通用诊断](docs/scenarios.zh-CN.md#通用诊断) |
 
 仅有 `ping` 结果不足以下结论。TLS 握手成功、HTTP `401`、认证后的 API 成功分别证明不同层次；`curl` 成功也不能替代 IDE 扩展的实际调用。
+
+**Copilot Claude 修复实录：**[专项文档](docs/copilot-claude.zh-CN.md)记录了修复前的空白窗口复现、`githubcopilot.com` 从 `DIRECT` 调整到既有外网策略、VS Code 代理与版本核对，以及 2026-10-01 Opus 5.5 返回 `OPUS_OK`、Sonnet 5.5 返回 `SONNET_OK` 的 UI/日志证据。路由与客户端版本均发生变化，因此保留无法单项归因的限制，并提供独立复测步骤。
 
 ## 4. 可下载的 prompt 与示例
 
@@ -109,6 +112,7 @@ Mihomo 是可选项。这种接法让应用只配置一个 HTTP 代理，由 Mih
 | --- | --- |
 | [中文部署 prompt](prompts/deploy.zh-CN.md) / [English deployment prompt](prompts/deploy.en.md) | 完整交给本地 agent 执行 |
 | [中文维护 prompt](prompts/maintain.zh-CN.md) / [English maintenance prompt](prompts/maintain.en.md) | 后续故障诊断，保留可用环境 |
+| [Copilot Claude 专项 prompt](prompts/copilot-claude.zh-CN.md) / [English](prompts/copilot-claude.en.md) | 从缺失/Upgrade/调用失败排查到真实 Opus、Sonnet 回答验收 |
 | [Compose](examples/compose.yaml) + [私有环境模板](examples/atrust.env.example) | 仅用于新建容器；已有容器优先复用 |
 | [Shadowrocket 规则片段](examples/shadowrocket.rules.example) | 先定义本地 SOCKS 节点，再合并规则，不是完整订阅或配置 |
 | [Mihomo 示例](examples/mihomo.example.yaml) | 可选应用入口，须替换为实测端口与目标 |

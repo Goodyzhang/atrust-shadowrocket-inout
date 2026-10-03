@@ -135,6 +135,8 @@ Host corp-gitlab
 
 ## 外网模型目录
 
+针对 VS Code 已有 Pro+、其他机器能用 Opus、本机却缺失 Claude 或显示 Upgrade 的情况，见[详细修复案例](copilot-claude.zh-CN.md)。其中包含故障观察、实际规则/版本变化、两项真实生成证据、逐步复测和[专项 agent prompt](../prompts/copilot-claude.zh-CN.md)。下文保留适用于其他公共模型服务的通用检查。
+
 IDE 订阅和模型下拉列表需要分层检查：
 
 1. 从服务支持的界面确认登录账号、套餐、组织策略及当前模型权限。可用性会变化，以当前官方文档为准。

@@ -125,6 +125,8 @@ No second global TUN is needed. The example has no controller API and adds no sy
 
 ## 5. Acceptance, restart and rollback
 
+For missing/unusable Claude models in VS Code Copilot, continue with the [dedicated repair and acceptance guide](copilot-claude.en.md). An effective HTTP proxy setting still needs catalog and real model-generation verification.
+
 Use the [acceptance template](acceptance-template.md) outside the repository. Verify an internal application and a public application at the same time. Save only concise, redacted evidence; inspect real addresses privately.
 
 Restart sequence: container runtime → aTrust container → valid VPN session → Shadowrocket profile/listener → optional Mihomo → client. `restart: unless-stopped` does not start the Mac runtime or satisfy MFA. After sleep or reboot, recheck the endpoints; do not advertise an autostart or recovery guarantee you have not tested.

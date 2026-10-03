@@ -125,6 +125,8 @@ route -n get 192.168.50.30
 
 ## 5. 验收、重启与回滚
 
+VS Code Copilot 的 Claude 缺失/不可用场景，继续读[专项修复与验收](copilot-claude.zh-CN.md)：HTTP 代理设置生效后，还需确认模型目录及目标模型真实生成。
+
 将[验收模板](acceptance-template.md)保存到仓库外，同时验证内网应用与外网应用。只保留简短、脱敏的证据，真实地址在本地私下核对。
 
 启动顺序：容器运行时 → aTrust 容器 → 有效 VPN 会话 → Shadowrocket 配置/监听 → 可选 Mihomo → 应用。`restart: unless-stopped` 不负责启动 Mac 的运行时，也不能自动完成 MFA。休眠或重启后重新探测端点，没有实测就不承诺开机自启或自动恢复。

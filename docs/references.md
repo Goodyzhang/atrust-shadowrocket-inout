@@ -4,6 +4,10 @@ Reviewed for this documentation on **2026-10-01**. Upstream behavior and client 
 
 本教程于 **2026-10-01** 核对以下资料。上游行为和客户端界面可能变化，部署时以实际安装版本为准。
 
+The Copilot case and its linked official guidance were additionally reviewed on **2026-10-03**; its successful generation records are dated **2026-10-01**, not a new live test.
+
+Copilot 专项案例及链接的官方指导另于 **2026-10-03** 核对；成功生成证据发生于 **2026-10-01**，本次整理没有重新实测调用。
+
 | Primary source / 一手来源 | Used for / 用途 |
 | --- | --- |
 | [docker-easyconnect README](https://github.com/docker-easyconnect/docker-easyconnect/blob/master/README.md) | aTrust image family, supported architectures and project scope / aTrust 镜像系列、架构与项目范围 |
@@ -21,6 +25,10 @@ Reviewed for this documentation on **2026-10-01**. Upstream behavior and client 
 | [Git configuration](https://git-scm.com/docs/git-config) | HTTP proxy scope and credential handling / HTTP 代理范围与凭据处理 |
 | [OpenSSH client configuration](https://man.openbsd.org/ssh_config) | Host-specific ProxyCommand and host identity checks / 按 Host 代理与主机身份校验 |
 | [GitHub Copilot network troubleshooting](https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors) | Public service network diagnosis; consult the current endpoint requirements / 公共服务网络排查与当前端点要求 |
+| [Copilot network configuration](https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings) | Editor HTTP proxy settings and certificate handling / 编辑器 HTTP 代理及证书配置 |
+| [Copilot allowlist](https://docs.github.com/en/copilot/reference/copilot-allowlist-reference) | Current service destinations; a case-specific domain is not the whole list / 当前服务目标，案例域名不等于完整清单 |
+| [Copilot logs](https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/view-logs) | Supported diagnostic entry points / 受支持的诊断入口 |
+| [Supported Copilot models](https://docs.github.com/en/copilot/reference/ai-models/supported-models) | Check present availability instead of treating historical model names as entitlement / 当前可用性，不以历史型号替代权限核对 |
 
 Shadowrocket UI instructions describe observed application behavior, not a stable configuration API. Labels and available controls vary by version. The tutorial deliberately avoids direct edits to the application's private database.
 
@@ -50,3 +58,7 @@ Executed locally on 2026-10-01, before first publication / 于 2026-10-01 首次
 These results apply to the initial templates. Re-run the relevant checks after changes. No connection to the fictional targets was attempted.
 
 以上结果对应初始模板，后续修改需重新执行相关检查；没有尝试连接虚构目标。
+
+The 2026-10-03 documentation update rechecks Markdown links/anchors, shell and JSON snippets, bilingual evidence consistency, and private-data patterns. Network configuration templates are unchanged. See the [Copilot case](copilot-claude.en.md) / [中文案例](copilot-claude.zh-CN.md) for the separately dated historical application results.
+
+2026-10-03 文档更新重新检查 Markdown 链接/锚点、shell 与 JSON 片段、双语证据一致性和敏感信息模式；网络配置模板未变。历史应用验收另见上述专项案例中的明确日期。

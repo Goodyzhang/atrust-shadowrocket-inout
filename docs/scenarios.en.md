@@ -135,6 +135,8 @@ After installing an independently verified host key and authorized public key, u
 
 ## Public model catalog
 
+For VS Code with Pro+ where Opus works on another machine but Claude is missing or shows Upgrade locally, see the [detailed repair case](copilot-claude.en.md). It includes observations, actual rule/version changes, two real generation results, a retest procedure and a [dedicated agent prompt](../prompts/copilot-claude.en.md). The checks below remain applicable to other public model services.
+
 An IDE subscription and its model picker are different layers. Diagnose them separately:
 
 1. Verify the signed-in account, plan, organization policy and current model entitlement from the service's supported UI. Availability changes; consult its current official documentation.

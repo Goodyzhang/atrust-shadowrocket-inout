@@ -99,9 +99,12 @@ Follow the commands and restart procedure in [the setup guide](docs/setup.en.md)
 | Internal LLM provider | Exact model IDs, endpoint convention, API key, streaming and client cancellation | [Internal model provider](docs/scenarios.en.md#internal-model-provider) |
 | Internal GitLab | Separate HTTPS Git from SSH Git; scoped proxy settings and host verification | [GitLab and SSH](docs/scenarios.en.md#gitlab-and-ssh) |
 | Public AI models missing | Account entitlement, actual destination rule, fresh model catalog and real response | [Public model catalog](docs/scenarios.en.md#public-model-catalog) |
+| Claude missing/unusable in VS Code Copilot | Pro+ recognized but Upgrade still shown; rule correction, client update and real Opus/Sonnet tests | [Full repair case](docs/copilot-claude.en.md) |
 | VPN connected but nothing works | Local listener → proxy handshake → container route → target TCP → app auth | [General diagnosis](docs/scenarios.en.md#general-diagnosis) |
 
 `ping` alone is insufficient. A TLS handshake or an HTTP `401` establishes a different fact from a successful authenticated API call. `curl` success also does not prove that an IDE extension uses the same path.
+
+**Copilot Claude repair record:** the [dedicated guide](docs/copilot-claude.en.md) covers the empty-window reproduction, changing `githubcopilot.com` from `DIRECT` to the existing Internet policy, VS Code proxy/version checks, and UI/log evidence for Opus 5.5 returning `OPUS_OK` and Sonnet 5.5 returning `SONNET_OK` on 2026-10-01. Routing and client versions both changed; the guide preserves that causal limit and gives an independent retest procedure.
 
 ## 4. Downloadable prompts and examples
 
@@ -109,6 +112,7 @@ Follow the commands and restart procedure in [the setup guide](docs/setup.en.md)
 | --- | --- |
 | [English deployment prompt](prompts/deploy.en.md) / [中文部署 prompt](prompts/deploy.zh-CN.md) | Hand the complete task to a local agent |
 | [English maintenance prompt](prompts/maintain.en.md) / [中文维护 prompt](prompts/maintain.zh-CN.md) | Diagnose a later failure without rebuilding a working setup |
+| [Copilot Claude prompt](prompts/copilot-claude.en.md) / [中文专项 prompt](prompts/copilot-claude.zh-CN.md) | Diagnose missing/Upgrade-only/failed models and verify real Opus and Sonnet responses |
 | [Compose](examples/compose.yaml) + [private environment template](examples/atrust.env.example) | New aTrust container only; existing containers should be reused |
 | [Shadowrocket rule fragment](examples/shadowrocket.rules.example) | Merge rules after defining the local SOCKS node; not a complete subscription/profile |
 | [Mihomo example](examples/mihomo.example.yaml) | Optional application bridge; substitute measured ports and destinations |
